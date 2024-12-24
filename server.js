@@ -43,7 +43,7 @@ app.get('/',(req,res)=>{
         res.render('home')
     }
    } else{
-    res.render('/signin')
+    res.redirect('/signin')
    }
 })
 
