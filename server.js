@@ -36,14 +36,12 @@ db.once('open',()=>{
 
 // protected route
 app.get('/',(req,res)=>{
-   const {token} = req.cookies;
-   if(token){
-    const tokenData = jwt.verify(token, process.env.JWT_SECRET_KEY)
-    if(tokenData.type == 'user'){
-        res.render('home')
-    }
+   const {token} = req.cookies
+   const tokenData = jwt.verify(token, process.env.JWT_SECRET_KEY)
+   if(tokenData.type == 'user'){
+      res.render('home')
    } else{
-    res.redirect('/signin')
+      res.redirect('/signin')
    }
 })
 
